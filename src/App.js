@@ -8,16 +8,19 @@ const socket = io('http://192.168.1.8:8080');
 
 class App extends Component {
 state = {
+  amountOfClicked : 0,
   light : 1
 }
 
 componentDidMount () {
 
   socket.on("light", (data) =>{
+
     socket.emit("light",Number(this.state.light))
     this.setState(state => {
       return {
-        light : state.light === 0 ? 1 : 0
+        light : state.light === 0 ? 1 : 0,
+        amountOfClicked : state.amountOfClicked +1
       }
     })
   });
@@ -37,7 +40,7 @@ componentDidMount () {
     return (
       <div className="App">
           <p><input onChange={this.changeThings} checked={this.state.light === 1 ? false : true} type="checkbox" id="light"/>Start light</p>
-          <div>HÄR HAR VI NU ÄNDRAT OCH KAN SMIDIGT VISA TRYCKA UPP DENNA KOD PÅ PI</div>
+          <div>Klickat på knapp {this.state.amountOfClicked} antal ggr. </div>
       </div>
     );
   }
