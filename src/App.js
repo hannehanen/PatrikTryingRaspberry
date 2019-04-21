@@ -14,12 +14,12 @@ state = {
 componentDidMount () {
 
   socket.on("light", (data) =>{
+    socket.emit("light",Number(this.state.light))
     this.setState(state => {
       return {
         light : state.light === 0 ? 1 : 0
       }
     })
-    console.log(data)
   });
 }
 
