@@ -37,6 +37,7 @@ componentDidMount () {
     return (
       <div className="App">
           <p><input onChange={this.changeThings} checked={this.state.light === 1 ? false : true} type="checkbox" id="light"/>Start light</p>
+          <div>HÄR HAR VI NU ÄNDRAT OCH KAN SMIDIGT VISA TRYCKA UPP DENNA KOD PÅ PI</div>
       </div>
     );
   }
