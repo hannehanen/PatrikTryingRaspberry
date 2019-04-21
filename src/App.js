@@ -15,7 +15,9 @@ state = {
 componentDidMount () {
 
   socket.on("light", (data) =>{
-
+    if(this.state.amountOfClicked > 10){
+      socket.emit("yellowLamp", "");
+    }
     socket.emit("light",Number(this.state.light))
     this.setState(state => {
       return {
