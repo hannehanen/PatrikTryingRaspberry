@@ -5,6 +5,10 @@ import io from "socket.io-client";
 
 const socket = io('http://192.168.1.8:8080');
 
+socket.on("light", (data) =>{
+  console.log(data)
+});
+
 class App extends Component {
 
   componentDidMount() {
