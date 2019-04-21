@@ -36,7 +36,7 @@ componentDidMount () {
   render() {
     return (
       <div className="App">
-          <p><input onChange={this.changeThings} checked={this.state.light === 0 ? false : true} type="checkbox" id="light"/>Start light</p>
+          <p><input onChange={this.changeThings} checked={this.state.light === 1 ? false : true} type="checkbox" id="light"/>Start light</p>
       </div>
     );
   }
