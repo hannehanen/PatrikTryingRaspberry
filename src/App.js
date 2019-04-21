@@ -6,23 +6,34 @@ import io from "socket.io-client";
 const socket = io('http://192.168.1.8:8080');
 
 socket.on("light", (data) =>{
+  this.setState(state => {
+    return {
+      light : state.light === 0 ? 1 : 0
+    }
+  })
   console.log(data)
 });
 
 class App extends Component {
 
-  componentDidMount() {
-   
-  }
+state = {
+  light : 0
+}
 
   changeThings = (ev) =>{
-    socket.emit("light",Number(1))
+    console.log(ev)
+    this.setState(state => {
+      return {
+        light : state.light === 0 ? 1 : 0
+      }
+    })
+    socket.emit("light",Number(this.state.light))
   }
 
   render() {
     return (
       <div className="App">
-          <p><input onChange={this.changeThings} type="checkbox" id="light"/>Work Plexx..</p>
+          <p><input onChange={this.changeThings} checked={this.state.light === 0 ? false : true} type="checkbox" id="light"/>Work Plexx..</p>
       </div>
     );
   }
