@@ -5,19 +5,22 @@ import io from "socket.io-client";
 
 const socket = io('http://192.168.1.8:8080');
 
-socket.on("light", (data) =>{
-  this.setState(state => {
-    return {
-      light : state.light === 0 ? 1 : 0
-    }
-  })
-  console.log(data)
-});
 
 class App extends Component {
-
 state = {
   light : 0
+}
+
+componentDidMount () {
+
+  socket.on("light", (data) =>{
+    this.setState(state => {
+      return {
+        light : state.light === 0 ? 1 : 0
+      }
+    })
+    console.log(data)
+  });
 }
 
   changeThings = (ev) =>{
