@@ -8,7 +8,7 @@ const socket = io('http://192.168.1.8:8080');
 
 class App extends Component {
 state = {
-  light : 0
+  light : 1
 }
 
 componentDidMount () {
@@ -36,7 +36,7 @@ componentDidMount () {
   render() {
     return (
       <div className="App">
-          <p><input onChange={this.changeThings} checked={this.state.light === 0 ? false : true} type="checkbox" id="light"/>Work Plexx..</p>
+          <p><input onChange={this.changeThings} checked={this.state.light === 0 ? false : true} type="checkbox" id="light"/>Start light</p>
       </div>
     );
   }
