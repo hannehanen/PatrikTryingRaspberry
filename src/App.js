@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <p><input onChange={this.changeThings} type="checkbox" id="light"/>Box..</p>
+          <p><input onChange={this.changeThings} type="checkbox" id="light"/>Work Plexx..</p>
       </div>
     );
   }
